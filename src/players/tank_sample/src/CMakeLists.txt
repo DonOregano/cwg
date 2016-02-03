@@ -1,28 +1,17 @@
-cmake_minimum_required(VERSION 2.8)
-
-set(proj_name tank_sample)
-
-project(${proj_name} CXX)
-include($ENV{SAFIR_SDK}/data/build/safir_sdk_core_config.cmake)
-
-if (NOT MSVC)
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-endif()
+#TODO: make it possible to build standalone as well!
+#or is this something different?
 
 file(GLOB headers *.h)
 file(GLOB sources *.cpp)
-add_executable(${proj_name} ${sources} ${headers})
+add_executable(tank_sample ${sources} ${headers})
 
-find_package(Boost COMPONENTS system chrono)
+target_link_libraries(tank_sample PRIVATE safir_generated-Cwg-cpp ${SAFIR_SDK_CORE_LIBRARIES})
 
-if (NOT MSVC)
-    target_link_libraries(${proj_name} swre_interface_cpp dose_cpp dots_generated-Safir-cpp dots_generated-Consoden-cpp dots_cpp logging_cpp ${Boost_LIBRARIES})
-endif()
 
-install(TARGETS ${proj_name}
-        RUNTIME DESTINATION ${SAFIR_RUNTIME}/bin
-        LIBRARY DESTINATION ${SAFIR_RUNTIME}/lib
-        ARCHIVE DESTINATION ${SAFIR_SDK}/lib)
+# install(TARGETS ${proj_name}
+#         RUNTIME DESTINATION ${SAFIR_RUNTIME}/bin
+#         LIBRARY DESTINATION ${SAFIR_RUNTIME}/lib
+#         ARCHIVE DESTINATION ${SAFIR_SDK}/lib)
 
-INSTALL_DEBUG_INFO(${proj_name})
+# INSTALL_DEBUG_INFO(${proj_name})
 

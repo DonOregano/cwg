@@ -163,6 +163,9 @@ namespace TankTeamPlayer
                 case Consoden::TankGame::Direction::Down:
                     std::cout << "Down";
                     break;
+                case Consoden::TankGame::Direction::Neutral:
+                    std::cout << "Neutral";
+                    break;
             }
             std::cout << std::endl;
         }

@@ -110,5 +110,7 @@ build-*
 .project
 .settings/
 *.xcf
+.ninja_*
+*.ninja
 
 

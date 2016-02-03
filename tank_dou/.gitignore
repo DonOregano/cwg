@@ -1,0 +1,5 @@
+gen
+*.gch
+*.xml
+version.cs
+Manifest.generated.txt
