@@ -51,7 +51,7 @@ public:
 	/**
 	 * Initializes the media player. Has no effect if sound_enabled is false.
 	 */
-	void setSoundPlayer(char const* sound_file, bool sound_enabled,int volume);
+	void setSoundPlayer(const QString& sound, bool sound_enabled,int volume);
 
 
     /*

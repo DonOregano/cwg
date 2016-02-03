@@ -7,8 +7,8 @@
         <parameter>
             <summary>Path where board files resides. Parsed recursively.</summary>
             <name>Path</name>
-            <type>String</type>
-            <value>$(SAFIR_RUNTIME)/data/tank_game/boards</value>
+            <type>String</type> <!-- TODO -->
+            <value>$(HOME)/cwg/game_boards</value>
         </parameter>
     </parameters>
     <members>        

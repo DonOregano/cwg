@@ -1074,23 +1074,21 @@ void GameWorld::InitMediaPlayers()
     m_explosionMediaPlayer2.setVolume((int)((Consoden::TankGame::Configuration::ExplosionVolume()*100)/Consoden::TankGame::Configuration::MasterVolume()));
     m_smokeMediaPlayer.setVolume((int)((Consoden::TankGame::Configuration::SmokeVolume()*100)/Consoden::TankGame::Configuration::MasterVolume()));
 
-    const char* runtime=getenv("SAFIR_RUNTIME");
-    QString path=QDir::cleanPath(QString(runtime)+QDir::separator()+"data"+QDir::separator()+"tank_game"+QDir::separator()+"sounds");
-    QString firePath=QDir::cleanPath(path+QDir::separator()+"shotgun.mp3");
-    QString explostionPath=QDir::cleanPath(path+QDir::separator()+"explosion.mp3");
-    QString gunPath=QDir::cleanPath(path+QDir::separator()+"gun.mp3");
-    QString bigBombPath=QDir::cleanPath(path+QDir::separator()+"big_bomb.mp3");
-    QString death_of_dude=QDir::cleanPath(path+QDir::separator()+"dude-dies.mp3");
-    QString laser_fire=QDir::cleanPath(path+QDir::separator()+"laser-fire.mp3");
-    QString smoke=QDir::cleanPath(path+QDir::separator()+"smoke_deployed.mp3");
+    const QUrl firePath("qrc:/sounds/shotgun.mp3");
+    const QUrl explostionPath("qrc:/sounds/explosion.mp3");
+    const QUrl gunPath("qrc:/sounds/gun.mp3");
+    const QUrl bigBombPath("qrc:/sounds/big_bomb.mp3");
+    const QUrl death_of_dude("qrc:/sounds/dude-dies.mp3");
+    const QUrl laser_fire("qrc:/sounds/laser-fire.mp3");
+    const QUrl smoke("qrc:/sounds/smoke_deployed.mp3");
 
-    m_fireMediaPlayer1.setMedia(QUrl::fromLocalFile(firePath));
-    m_explosionMediaPlayer1.setMedia(QUrl::fromLocalFile(explostionPath));
-    m_fireMediaPlayer2.setMedia(QUrl::fromLocalFile(gunPath));
-    m_explosionMediaPlayer2.setMedia(QUrl::fromLocalFile(bigBombPath));
-    m_dude_dies_MediaPlayer.setMedia(QUrl::fromLocalFile(death_of_dude));
-    m_laser_fire_MediaPlayer.setMedia(QUrl::fromLocalFile(laser_fire));
-    m_smokeMediaPlayer.setMedia(QUrl::fromLocalFile(smoke));
+    m_fireMediaPlayer1.setMedia(firePath);
+    m_explosionMediaPlayer1.setMedia(explostionPath);
+    m_fireMediaPlayer2.setMedia(gunPath);
+    m_explosionMediaPlayer2.setMedia(bigBombPath);
+    m_dude_dies_MediaPlayer.setMedia(death_of_dude);
+    m_laser_fire_MediaPlayer.setMedia(laser_fire);
+    m_smokeMediaPlayer.setMedia(smoke);
 
 }
 

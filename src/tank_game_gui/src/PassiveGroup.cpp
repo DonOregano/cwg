@@ -51,14 +51,11 @@ PassiveGroup::PassiveGroup(MatchState match_state, char const* image_name, int f
 /**
  * Initializes the media player. Has no effect if sound_enabled is false.
  */
-void PassiveGroup::setSoundPlayer(char const* sound_file, bool sound_enabled,int volume){
+void PassiveGroup::setSoundPlayer(const QString& sound, bool sound_enabled,int volume){
 	if(!sound_enabled){return;}
 
-	const char* runtime=getenv("SAFIR_RUNTIME");
-	QString path=QDir::cleanPath(QString(runtime)+QDir::separator()+"data"+QDir::separator()+"tank_game"+QDir::separator()+"sounds");
     m_media_player.setVolume(100);
-    QString file_path=QDir::cleanPath(path+QDir::separator()+sound_file);
-    m_media_player.setMedia(QUrl::fromLocalFile(file_path));
+    m_media_player.setMedia(QUrl("qrc://sounds/" + sound));
     m_sound_enabled = true;
 
 }

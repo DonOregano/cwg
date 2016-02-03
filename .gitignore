@@ -109,7 +109,6 @@ build-*
 .cproject
 .project
 .settings/
-*.xcf
 .ninja_*
 *.ninja
 
