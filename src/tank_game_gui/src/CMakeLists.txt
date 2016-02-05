@@ -4,6 +4,7 @@ FILE(GLOB headers [!ui_]*.h)
 
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Multimedia REQUIRED)
+mark_as_advanced(Qt5Core_DIR Qt5Gui_DIR Qt5Widgets_DIR Qt5Multimedia_DIR Qt5Network_DIR)
 
 if (Qt5Widgets_VERSION VERSION_LESS "5.2.1")
   MESSAGE(WARNING "Qt versions below 5.2.1 may not play sounds correctly")
