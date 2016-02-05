@@ -1090,6 +1090,8 @@ void GameWorld::InitMediaPlayers()
     m_laser_fire_MediaPlayer.setMedia(laser_fire);
     m_smokeMediaPlayer.setMedia(smoke);
 
+    //Note: this method of handling the sounds (embedded in a resource file)
+    //requires qt 5.2.1 or later. See https://bugreports.qt.io/browse/QTBUG-31422
 }
 
 void GameWorld::UpdateTowerAngle(qint64 timeToNextUpdate, qreal movement, Tank& tank)

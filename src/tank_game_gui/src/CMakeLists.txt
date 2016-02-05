@@ -5,6 +5,10 @@ FILE(GLOB headers [!ui_]*.h)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Multimedia REQUIRED)
 
+if (Qt5Widgets_VERSION VERSION_LESS "5.2.1")
+  MESSAGE(WARNING "Qt versions below 5.2.1 may not play sounds correctly")
+endif()
+
 set(CMAKE_AUTOMOC ON)
 QT5_WRAP_UI(ui_headers ${ui})
 QT5_ADD_RESOURCES(qrc_src application.qrc)
